@@ -43,3 +43,24 @@ TARGET_USERIMAGES_USE_EXT4 := true
 # Recovery
 # inherit from the proprietary version
 -include vendor/samsung/n80xx-common/BoardConfigVendor.mk
+
+# TWRP
+
+# Use this flag if the board has a ext4 partition larger than 2gb
+BOARD_HAS_LARGE_FILESYSTEM := true
+
+# Recovery: set depending on recovery being built for. (CWM or TWRP)
+#           both init scripts can be found in the recovery folder
+TARGET_RECOVERY_INITRC := device/samsung/p4notewifi/recovery/init.rc
+
+# TWRP specific build flags
+DEVICE_RESOLUTION := 1280x800
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/external_sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sdcard"
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+TW_NO_USB_STORAGE := true
+TWRP_EVENT_LOGGING := true
