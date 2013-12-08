@@ -30,6 +30,9 @@ BOARD_MODEM_TYPE := xmm6262
 # Camera
 BOARD_USES_PROPRIETARY_LIBCAMERA := true
 
+# Needed for camera blob to work after https://gerrit.omnirom.org/#/c/3005
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
+
 # Filesystem
 BOARD_NAND_PAGE_SIZE := 2048
 BOARD_NAND_SPARE_SIZE := 128
